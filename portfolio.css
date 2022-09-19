@@ -3,7 +3,7 @@
     --grey:         #2D2B39;
     --light-grey:   #EAEAEC;
     --white:        #ffffff;
-    --blue:       #9FD8F9;
+    --blue:         #9FD8F9;
 }
 
 *{
@@ -16,6 +16,7 @@
 
 header ul li a{
     color: var(--blue);
+    font-size: 1.6rem;
 }
 
 header ul li a:hover{
@@ -31,11 +32,8 @@ body .home{
 }
 
 body h1{
-    color: var(--orange);
     font-family: 'Montserrat', sans-serif;
-    background: -webkit-linear-gradient(45deg, #ff626d, black);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+    color: var(--blue);
 }
 
 body p{
