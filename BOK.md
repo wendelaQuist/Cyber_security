@@ -13,7 +13,6 @@ Wen Quist
 
 Version 2.0
 
-
 #
 
 # Table of Contents
@@ -24,8 +23,8 @@ Version 2.0
     1. [Path traversal](#path-traversal)
     2. [File inclusion](#file-inclusion)
     3. [Command injection](#command-injection)
-6. 
-7. [XSS](#xss)
+5. [HIDS](#hids)
+6. [XSS](#xss)
     1. [Stored XSS attack](#stored-xss-attack)
 
 #
@@ -54,6 +53,8 @@ The ip adress of my notebook is 192.168.1.40, so my router is succesfully managi
 To get started we had to set up a test web shop. I created a virtual machine in VMware by using the Kali template. To be able to work in a safe environment we had to connect to our virtual local area network. VLAN divides one physical switch into multiple virtual switches.
 
 ![](./Pictures/Webshop.png)
+
+Now I had to install Apache, MySQL and PHP.
 
 #
 
@@ -104,11 +105,32 @@ You need to go back twice before the site shows the hidden information.
 |1| **“I needed a password eight characters long, so I picked Snow White and the Seven Dwarves”**|
 |2| **“Bond. James Bond”**|
 |3| **“My name is Sherlock Holmes. It is my business to know what other people don’t know”**|
-|4|**“The pool on the roof must have a leak”**|
+|4| **“The pool on the roof must have a leak”**|
+|5| **"Line Hidden"**|
 
 #
 
 ## Command injection
+
+An insecured web server can use vulnerable transmissions of data, like cookies and forms. 
+Command injections is a cyber attack by using arbitrary code and basically breaching the system and getting acces to private data. There are multiple ways to use command injections such as shell commands or injecting infected files to a server. 
+
+![](./Pictures/IP-injection.png)
+
+I've entered my ip adress and this way I could acces an external server through an unsecured HTML element. I then implemented PHP code which the web server then executed.
+
+#
+
+## HIDS
+Intrusion Detection Systems is a way to monitor network traffic. IDS will receive a copy of all the transferred data and uses signatures to compare normal with hackers activity. This way IDS can alert when there is malicious activity. 
+
+IPS is a physical or virtual prevention system between a firewall and a network port. with the same signature system as IDS but will block the traffic between the router and port.
+
+When an IDS software directly runs on a server , it is an Host intrusion detection/prevention system. Because HIDS operates with a signature-based system it works almost the same as an antivirus and functions as a firewall by looking for a pattern in the data. An anomaly system looks for irregular activity by the user or process
+
+NIDS also surveys network traffic and events like HIDS, but works in a more targeting way by also analysing packet data when it travels through a network.
+
+To keep a company as safe as possible for hackers it would be best to use both HIDS and IPS to complete eachother.
 
 #
 
