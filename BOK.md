@@ -146,8 +146,11 @@ SQL is a common language and it's purpose is to acces or modify databases. SQLI 
 #
 
 To practise this I had to get acces to the passwords of 5 users that are stored in de database. At first I submitted 1 to 5 to see what information I have acces to which is ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and i modified it to find how many colums the database uses so i can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
-I used HackBar add-on as a pentest tool. This helped me with executing SQL injections to gain the hashes of the users. I converted these hashes by using crackstation which gave me the passwords of the 5 users.
+I used HackBar add-on as a pentest tool. This helped me with executing SQL injections to gain the hashes of the users.
 
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/hackbar-hashes.png?raw=true)
+
+I converted these hashes by using crackstation which gave me the passwords of the 5 users.
 
 #
 
