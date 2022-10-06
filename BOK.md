@@ -11,26 +11,48 @@ Semester 4
 
 Wen Quist
 
-Version 2.0
+Version 3.0
 
 #
 
 # Table of Contents
-1. [Ip configuration](#ip-configuration)
-2. [Web shop](#web-shop)
-3. [Kali](#kali)
-4. [DVWA](#dvwa)
+1. [Security Threats](#security-threats)
+2. [Ip configuration](#ip-configuration)
+3. [Web shop](#web-shop)
+4. [Kali](#kali)
+5. [DVWA](#dvwa)
     1. [Path traversal](#path-traversal)
     2. [File inclusion](#file-inclusion)
     3. [Command injection](#command-injection)
     4. [SQL injection](#sql-injection)
-5. [HIDS](#hids)
-6. [XSS](#xss)
+6. [HIDS](#hids)
+7. [XSS](#xss)
     1. [Stored XSS attack](#stored-xss-attack)
 
 #
 
+## Security Threats
+
+#
+
+### Types of Cyber Security Threats
+|Name|What does it do?|How to stay protected|
+|:---------|:---------|:---------|
+|Malware|It's a general term for virusses and trojans. Malicious software can be transmitted over an unsecured network and the goal is to corrupt as many machines as possible.|To protect yourself from malware it's important to use an antivirus program and be carefull when downloading software.|
+|Spam| Spam is unwanted email that is trying to make people click on links to unsecured websites or give up sensitive information. |It's important to look out for hidden hyperlinks that could hide itself as a image for instance. Also never reply to a spam mail. Some anti virus programs use a spam filter.|
+|Phishing|Some hackers can pretend to be someone you know or a familiar company, and lure you into clicking on links or giving up private info, like your username and password.| Phishing mails to avoid, use keywords like "urgent" or "immediate action". Most of the times when a hacker is imitating a familiar person the text or email will look odd.|
+|Spear Phishing|Instead of sending a general mail to as many people as possible, spear phishing is way more targeted. They usually investigate their target more and try to get high level executives to fall for a scam. An other term is Whaling.| It's very important to encrypt any sensitive company data and to use DMARC. Domain-based Message Authentication, Reporting & Conformance technology verifies if the email adress is stored in the database.|
+|Adware|Adware is advertisement pop-ups which trap people into clicking on it. They earn money everytime people click on the link, or by how many times an ad is shown. Adware can track your search history to target and personalize the ads. Once they track your location and browser history, they can sell it to third paries.|When you download software from the internet, make sure you don't install unnecessary additional software.|
+|Man-in-the-middle attack|When an end-user is exchanging data with a server a hacker could come in between and pretend to be both to manipulate the transfer and intercept sensitive data or send malicious links.| To prevent MITM attacks, companies could use multi-factor authentication, so an extra security like a personal pin code could help block a hacker.|
+|Ransomware| As the name says, ransomware can encrypt or lock important information. It's a way to exploit people and companies for ransom money. It can degrade operations or shut down completely.|Don't plug unkown devices on to your system and use a anti-ransomware software.|
+|Denial of Service (DoS and DDoS)|With a DoS attack a server will be flooded with Transmission Control Protocol and User Datagram Protocol packets. DDoS uses a lot of systems to send many packets to one network from multiple locations. By bombarding a server with many packets, it will overload and becomes unavailable. By shutting down servers, companies can lose a lot of money by being unusable untill the servers are up and running again.|It's hard to prevent Dos & DDoS, so it's important to decrease the damage of an attack. By regular network monitoring, It's possible to detect attacks before they take systems offline by not recognizing certain processes.|
+|Advanced persistent threats|Instead of obtaining information in a short period of time, APT gaines information over a long period of time. Because it takes so much effort it is usually applied to big targets like, large corporations. This way they can implement malware that can open back doors undetected. Hackers can get more classified information in a matter of time and use it later for exploitation.|APT is very hard to prevent. It's important to use multiple measures from a firewall to spreading awareness of social engineering methods.|
+
+#
+
 ## IP configuration
+
+#
 
 To get an image of how my own network looks like, I looked up my configurations in Windows Powershell. An Ip address is a 32-bit long binary number seperated in four octets and an unique adress connected to individual devices. With an Internet Protocol it's possible to communicate information between systems. Here you can see my desktop and the plugged in bluetooth adapter. 
 
@@ -50,6 +72,8 @@ The ip adress of my notebook is 192.168.1.40, so my router is succesfully managi
 #
 
 ## Web shop
+
+#
 
 To get started we had to set up a test web shop. I created a virtual machine in VMware by using the Kali template. To be able to work in a safe environment we had to connect to our virtual local area network. VLAN divides one physical switch into multiple virtual switches.
 
@@ -145,18 +169,20 @@ SQL is a common language and it's purpose is to acces or modify databases. SQLI 
 
 #
 
-To practise this I had to get acces to the passwords of 5 users that are stored in de database. At first I submitted 1 to 5 to see what information I have acces to which is ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and i modified it to find how many colums the database uses so i can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
+To practise this I used help, which said I had to get acces to the passwords of 5 users. these users are stored in de database. When you look at the source code, you can see there is no validation which gives me the opportunity to inject lines of code. At first I submitted 1 to 5 to see what pieces of information I have acces to, which were ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and I modified it to find how many colums the database uses so I can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
 I used HackBar add-on as a pentest tool. This helped me with executing SQL injections to gain the hashes of the users.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/hackbar-hashes.png?raw=true)
 
 I converted these hashes by using crackstation which gave me the passwords of the 5 users.
 
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/crackstation.png?raw=true)
+
 #
 
 ## XSS
 
-XSS is a form of an attack by injecting mischievous code in a normally trusted web page. Because of the site's security the script will be executed without being detected. Doing this will give the attacker access to cookies, session tokens, sensitive information and even the opportunity to rewrite html code.
+XSS is a form of an attack by injecting mischievous Javascript code in a normally trusted web page. It's an end-user attack by basically hijacking the users control. Because of the site's security the script will be executed without being detected. Doing this will give the attacker access to cookies, session tokens, sensitive information and even the opportunity to rewrite html code.
 
 #
 
