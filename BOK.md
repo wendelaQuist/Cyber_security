@@ -16,19 +16,28 @@ Version 3.0
 #
 
 # Table of Contents
-1. [Security Threats](#security-threats)
-2. [Ip configuration](#ip-configuration)
-3. [Web shop](#web-shop)
-4. [Kali](#kali)
-5. [DVWA](#dvwa)
+1. [Intro](#intro)
+2. [Security Threats](#security-threats)
+3. [Ip configuration](#ip-configuration)
+4. [Web shop](#web-shop)
+5. [Kali](#kali)
+6. [DVWA](#dvwa)
     1. [Path traversal](#path-traversal)
     2. [File inclusion](#file-inclusion)
     3. [Command injection](#command-injection)
     4. [SQL injection](#sql-injection)
-6. [HIDS](#hids)
-7. [XSS](#xss)
+7. [HIDS](#hids)
+8. [XSS](#xss)
     1. [Stored XSS attack](#stored-xss-attack)
 
+#
+
+## Intro
+Everyday there is a threat of a cyber invasion going on in the world. Especially Ukraine was a victim of cyber-attacks that targeted important public and private individuals just before the war broke out. These attacks were focussed on ministries, armed forces and banks.
+
+This is why I think it's important to learn more about cyber security to be able to protect yourself as much as you can. This semester I will learn more about diverse security systems, risks and how to protect machines. 
+
+In the end I will be able to do a pentest on a company. This will mean detecting possible security threats and being able to report How these threats can be minimized. 
 #
 
 ## Security Threats
@@ -38,7 +47,7 @@ Version 3.0
 ### Types of Cyber Security Threats
 |Name|What does it do?|How to stay protected|
 |:---------|:---------|:---------|
-|Malware|It's a general term for virusses and trojans. Malicious software can be transmitted over an unsecured network and the goal is to corrupt as many machines as possible.|To protect yourself from malware it's important to use an antivirus program and be carefull when downloading software.|
+|Malware|It's a general term for virusses and trojans. Malicious software can be transmitted over an unsecured network and the goal is to corrupt as many machines possible.|To protect yourself from malware it's important to use an antivirus program and be carefull when downloading software.|
 |Spam| Spam is unwanted email that is trying to make people click on links to unsecured websites or give up sensitive information. |It's important to look out for hidden hyperlinks that could hide itself as a image for instance. Also never reply to a spam mail. Some anti virus programs use a spam filter.|
 |Phishing|Some hackers can pretend to be someone you know or a familiar company, and lure you into clicking on links or giving up private info, like your username and password.| Phishing mails to avoid, use keywords like "urgent" or "immediate action". Most of the times when a hacker is imitating a familiar person the text or email will look odd.|
 |Spear Phishing|Instead of sending a general mail to as many people as possible, spear phishing is way more targeted. They usually investigate their target more and try to get high level executives to fall for a scam. An other term is Whaling.| It's very important to encrypt any sensitive company data and to use DMARC. Domain-based Message Authentication, Reporting & Conformance technology verifies if the email adress is stored in the database.|
@@ -47,6 +56,10 @@ Version 3.0
 |Ransomware| As the name says, ransomware can encrypt or lock important information. It's a way to exploit people and companies for ransom money. It can degrade operations or shut down completely.|Don't plug unkown devices on to your system and use a anti-ransomware software.|
 |Denial of Service (DoS and DDoS)|With a DoS attack a server will be flooded with Transmission Control Protocol and User Datagram Protocol packets. DDoS uses a lot of systems to send many packets to one network from multiple locations. By bombarding a server with many packets, it will overload and becomes unavailable. By shutting down servers, companies can lose a lot of money by being unusable untill the servers are up and running again.|It's hard to prevent Dos & DDoS, so it's important to decrease the damage of an attack. By regular network monitoring, It's possible to detect attacks before they take systems offline by not recognizing certain processes.|
 |Advanced persistent threats|Instead of obtaining information in a short period of time, APT gaines information over a long period of time. Because it takes so much effort it is usually applied to big targets like, large corporations. This way they can implement malware that can open back doors undetected. Hackers can get more classified information in a matter of time and use it later for exploitation.|APT is very hard to prevent. It's important to use multiple measures from a firewall to spreading awareness of social engineering methods.|
+
+#
+
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/phishing-6926470_1280.png?raw=true)
 
 #
 
