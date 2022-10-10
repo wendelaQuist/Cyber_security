@@ -217,7 +217,7 @@ When an application is used to store data, it can be compromised by injecting ma
 ## Reflected XSS
  When a server is unsecured enough a hacker could put malicious code into a input field like a login screen and send it to a server. A hacker would try to get the victim to give him/her access by sending phishing mails or creating a fake web page to get to the server. In this case the Hacker would retreive the session identifier to pretend to be the victim. The server will identify the Hacker as the victim and give up privileged data. The hacker could also use the victim to send malicious code to the server.
 
-![]()
+![](https://raw.githubusercontent.com/wendelaQuist/Cyber_security/9eb1a3b1eabd14e885f257f134b8774be94537f0/Pictures/reflected%20xss.svg)
 
 #
 
