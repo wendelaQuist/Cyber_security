@@ -16,35 +16,38 @@ Version 3.0
 #
 
 # Table of Contents
-1. [Intro](#intro)
-2. [Security Threats](#security-threats)
-3. [Ip configuration](#ip-configuration)
-4. [Web shop](#web-shop)
-5. [Kali](#kali)
-6. [DVWA](#dvwa)
-    1. [Path traversal](#path-traversal)
-    2. [File inclusion](#file-inclusion)
-    3. [Command injection](#command-injection)
-    4. [SQL injection](#sql-injection)
-7. [HIDS](#hids)
-8. [XSS](#xss)
-    1. [Stored XSS attack](#stored-xss-attack)
+- [Intro](#intro)
+- [Types of Cyber Security Threats](#types-of-cyber-security-threats)
+- [IP configuration](#ip-configuration)
+- [Web shop](#web-shop)
+- [Kali](#kali)
+- [DVWA](#dvwa)
+  - [Path traversal](#path-traversal)
+  - [File Inclusion](#file-inclusion)
+  - [Command injection](#command-injection)
+  - [HIDS](#hids)
+  - [SQL injection](#sql-injection)
+  - [same-origin policy](#same-origin-policy)
+  - [XSS](#xss)
+  - [Stored XSS Attack](#stored-xss-attack)
+  - [Reflected XSS](#reflected-xss)
+  - [DOM-based XSS](#dom-based-xss)
+  - [CSRF](#csrf)
 
 #
 
 ## Intro
 Everyday there is a threat of a cyber invasion going on in the world. Especially Ukraine was a victim of cyber-attacks that targeted important public and private individuals just before the war broke out. These attacks were focussed on ministries, armed forces and banks.
 
-This is why I think it's important to learn more about cyber security to be able to protect yourself as much as you can. This semester I will learn more about diverse security systems, risks and how to protect machines. 
+This is why I think it's important to learn more about cyber security to be able to protect yourself as much as you can. This semester I will learn more about diverse security systems, risks, detection and how to defend yourself against an hack. 
 
-In the end I will be able to do a pentest on a company. This will mean detecting possible security threats and being able to report How these threats can be minimized. 
+In the end I will be able to do a pentest on a company. This will mean detecting possible security threats and being able to report How these threats can be minimized.
 #
 
-## Security Threats
+## Types of Cyber Security Threats
 
-#
+There are a lot of ways to protect yourself, like using a antivirus program, never clicking on suspicious links, not sharing sensitive data, keeping systems up to date and make back-ups frequently. But there are some specialized attacks that require different ways to protect yourself or a company.
 
-### Types of Cyber Security Threats
 |Name|What does it do?|How to stay protected|
 |:---------|:---------|:---------|
 |Malware|It's a general term for virusses and trojans. Malicious software can be transmitted over an unsecured network and the goal is to corrupt as many machines possible.|To protect yourself from malware it's important to use an antivirus program and be carefull when downloading software.|
@@ -57,15 +60,11 @@ In the end I will be able to do a pentest on a company. This will mean detecting
 |Denial of Service (DoS and DDoS)|With a DoS attack a server will be flooded with Transmission Control Protocol and User Datagram Protocol packets. DDoS uses a lot of systems to send many packets to one network from multiple locations. By bombarding a server with many packets, it will overload and becomes unavailable. By shutting down servers, companies can lose a lot of money by being unusable untill the servers are up and running again.|It's hard to prevent Dos & DDoS, so it's important to decrease the damage of an attack. By regular network monitoring, It's possible to detect attacks before they take systems offline by not recognizing certain processes.|
 |Advanced persistent threats|Instead of obtaining information in a short period of time, APT gaines information over a long period of time. Because it takes so much effort it is usually applied to big targets like, large corporations. This way they can implement malware that can open back doors undetected. Hackers can get more classified information in a matter of time and use it later for exploitation.|APT is very hard to prevent. It's important to use multiple measures from a firewall to spreading awareness of social engineering methods.|
 
-#
-
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/phishing-6926470_1280.png?raw=true)
 
 #
 
 ## IP configuration
-
-#
 
 To get an image of how my own network looks like, I looked up my configurations in Windows Powershell. An Ip address is a 32-bit long binary number seperated in four octets and an unique adress connected to individual devices. With an Internet Protocol it's possible to communicate information between systems. Here you can see my desktop and the plugged in bluetooth adapter. 
 
@@ -85,8 +84,6 @@ The ip adress of my notebook is 192.168.1.40, so my router is succesfully managi
 #
 
 ## Web shop
-
-#
 
 To get started we had to set up a test web shop. I created a virtual machine in VMware by using the Kali template. To be able to work in a safe environment we had to connect to our virtual local area network. VLAN divides one physical switch into multiple virtual switches.
 
@@ -182,8 +179,8 @@ SQL is a common language and it's purpose is to acces or modify databases. SQLI 
 
 #
 
-To practise this I used help, which said I had to get acces to the passwords of 5 users. these users are stored in de database. When you look at the source code, you can see there is no validation which gives me the opportunity to inject lines of code. At first I submitted 1 to 5 to see what pieces of information I have acces to, which were ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and I modified it to find how many colums the database uses so I can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
-I used HackBar add-on as a pentest tool. This helped me with executing SQL injections to gain the hashes of the users.
+To practise this I used help, which said I had to get acces to the passwords of 5 users. these users are stored in de database. When you look at the source code, you can see there is no validation which gives me the opportunity to inject lines of code. I looked up what pieces of code I could implement for exploitation. At first I submitted 1 to 5 to see what pieces of information I have acces to, which were ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and I modified it to find how many colums the database uses so I can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
+I used HackBar add-on as a pentest tool to check for vulnerabilities. This helped me with executing SQL injections to gain the hashes of the users.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/hackbar-hashes.png?raw=true)
 
@@ -193,10 +190,38 @@ I converted these hashes by using crackstation which gave me the passwords of th
 
 #
 
+## same-origin policy
+
+SOP is an important tool that regulates the way a document or script is loaded and interact. One origin can interact with the recourses of an other origin. 
+
+It's possible for multiple URL's to have the same origin. This means the protocol, port and host would be indentical.
+
+One of the reasons why Internet Explorer isn't safe to use is because it doesn't do same-origin checks. This means there are no restrictions and third parties could get acces between by cross-site scripting.
+
+#
+
 ## XSS
 
-XSS is a form of an attack by injecting mischievous Javascript code in a normally trusted web page. It's an end-user attack by basically hijacking the users control. Because of the site's security the script will be executed without being detected. Doing this will give the attacker access to cookies, session tokens, sensitive information and even the opportunity to rewrite html code.
+XSS is a form of an attack by injecting mischievous Javascript code in a normally trusted web page. It's an end-user attack by basically hijacking the users control. This can happen when a client visits a fake page and leaving credentials or clicking on malicious links. Because of the site's security the script will be executed without being detected. Doing this will give the attacker access to cookies, session tokens, sensitive information and even the opportunity to rewrite html code.
 
 #
 
 ## Stored XSS Attack
+
+When an application is used to store data, it can be compromised by injecting malicous code and storing it on the server. With this method hackers can open backdoors to gain more acces and information, but this will take a long time. In this time hackers can implement backdoors to get deeper into the system and learn more about the vulnerabilities. In the end the client could retreive scripts from the infected server to swap data. This is a persistent type of attack
+
+#
+
+## Reflected XSS
+ Reflected attacks happens when an attacker enters malicious code in a user input field like a comment section. Every system that load the comments will retreive the malicious code and execute it in the background.  
+
+
+#
+
+## DOM-based XSS 
+
+#
+
+## CSRF
+
+Cross-site request forgery is a way to partially bypass the same-origin policy. This way hackers can get remote control and change information like email adresses and passwords. 
