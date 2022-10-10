@@ -190,7 +190,7 @@ I converted these hashes by using crackstation which gave me the passwords of th
 
 #
 
-## same-origin policy
+## Same-origin policy
 
 SOP is an important tool that regulates the way a document or script is loaded and interact. One origin can interact with the recourses of an other origin. 
 
@@ -210,11 +210,14 @@ XSS is a form of an attack by injecting mischievous Javascript code in a normall
 
 When an application is used to store data, it can be compromised by injecting malicous code and storing it on the server. With this method hackers can open backdoors to gain more acces and information, but this will take a long time. In this time hackers can implement backdoors to get deeper into the system and learn more about the vulnerabilities. In the end the client could retreive scripts from the infected server to swap data. This is a persistent type of attack
 
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/stored%20xss.png?raw=true)
+
 #
 
 ## Reflected XSS
- Reflected attacks happens when an attacker enters malicious code in a user input field like a comment section. Every system that load the comments will retreive the malicious code and execute it in the background.  
+ When a server is unsecured enough a hacker could put malicious code into a input field like a login screen and send it to a server. A hacker would try to get the victim to give him/her access by sending phishing mails or creating a fake web page to get to the server. In this case the Hacker would retreive the session identifier to pretend to be the victim. The server will identify the Hacker as the victim and give up privileged data. The hacker could also use the victim to send malicious code to the server.
 
+![]()
 
 #
 
