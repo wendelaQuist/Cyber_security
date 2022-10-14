@@ -27,10 +27,12 @@ Version 3.0
   - [Command injection](#command-injection)
   - [HIDS](#hids)
   - [SQL injection](#sql-injection)
-  - [same-origin policy](#same-origin-policy)
+  - [Same-Origin Policy](#same-origin-policy)
+  - [Cookies](#cookies)
   - [XSS](#xss)
   - [Stored XSS Attack](#stored-xss-attack)
   - [Reflected XSS](#reflected-xss)
+  - [Cross Domain Acces Controls](#cross-domain-acces-controls)
   - [DOM-based XSS](#dom-based-xss)
   - [CSRF](#csrf)
 
@@ -157,6 +159,7 @@ I've entered my ip adress and this way I could acces an external server through 
 #
 
 ## HIDS
+
 Intrusion Detection Systems is a way to monitor network traffic. IDS will receive a copy of all the transferred data and uses signatures to compare normal with hackers activity. This way IDS can alert when there is malicious activity. 
 
 IPS is a physical or virtual prevention system between a firewall and a network port. with the same signature system as IDS but will block the traffic between the router and port.
@@ -170,6 +173,7 @@ To keep a company as safe as possible for hackers it would be best to use both H
 #
 
 ## SQL injection
+
 SQL is a common language and it's purpose is to acces or modify databases. SQLI can be used to adjust the backend to display private information, like important business data or sensitive customer info. There are multiple types of SQL injection. With In-band SQLi the hacker launches their attacks through the same way of communication. In-band has two variations:
 
 | | |
@@ -200,6 +204,14 @@ One of the reasons why Internet Explorer isn't safe to use is because it doesn't
 
 #
 
+## Cookies
+
+Cookies are text documents with pieces of information that contain the username and password. Browser cookies are very important in the present day, because a server creates the data that is stored in a cookie and attaches a unique ID. When there is an exchange between a server and computer the server will read the ID to confirm the user.  
+
+![](https://media.nu.nl/m/m1nx532as18u_std1024.jpg)
+
+#
+
 ## XSS
 
 XSS is a form of an attack by injecting mischievous Javascript code in a normally trusted web page. It's an end-user attack by basically hijacking the users control. This can happen when a client visits a fake page and leaving credentials or clicking on malicious links. Because of the site's security the script will be executed without being detected. Doing this will give the attacker access to cookies, session tokens, sensitive information and even the opportunity to rewrite html code.
@@ -215,13 +227,16 @@ When an application is used to store data, it can be compromised by injecting ma
 #
 
 ## Reflected XSS
- When a server is unsecured enough a hacker could put malicious code into a input field like a login screen and send it to a server. A hacker would try to get the victim to give him/her access by sending phishing mails or creating a fake web page to get to the server. In this case the Hacker would retreive the session identifier to pretend to be the victim. The server will identify the Hacker as the victim and give up privileged data. The hacker could also use the victim to send malicious code to the server.
+
+ When a server is unsecured enough a hacker could put malicious code into a input field like a login screen and send it to a server. A hacker would try to get the victim to give him/her access by sending phishing mails or creating a fake web page to get to the server. In this case the Hacker would retreive the session identifier to pretend to be the victim. The server will identify the Hacker as the victim and give up privileged data.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/reflected%20xss.png?raw=true)
 
 #
 
-## DOM-based XSS 
+## Cross Domain Acces Controls
+
+Some web pages use iframes which integrates one website within another. These sites can't communicate with eachother due to Same-Origin policy. Only when the scheme, port and host are the same.
 
 #
 
