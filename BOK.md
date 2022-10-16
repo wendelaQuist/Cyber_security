@@ -238,6 +238,8 @@ When an application is used to store data, it can be compromised by injecting ma
 
 Some web pages use iframes which integrates one website within another. These sites can't communicate with eachother due to Same-Origin policy. Only when the scheme, port and host are the same.
 
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/Cross-domain-access-controls.png?raw=true)
+
 #
 
 ## CSRF
