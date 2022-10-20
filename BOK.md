@@ -16,25 +16,28 @@ Version 3.0
 #
 
 # Table of Contents
-- [Intro](#intro)
-- [Types of Cyber Security Threats](#types-of-cyber-security-threats)
-- [IP configuration](#ip-configuration)
-- [Web shop](#web-shop)
-- [Kali](#kali)
-- [DVWA](#dvwa)
+- [**Cyber Security**](#cyber-security)
+- [Body Of Knowledge](#body-of-knowledge)
+- [Table of Contents](#table-of-contents)
+  - [Intro](#intro)
+  - [Types of Cyber Security Threats](#types-of-cyber-security-threats)
+  - [IP configuration](#ip-configuration)
+  - [Web shop](#web-shop)
+  - [Kali](#kali)
+  - [DVWA](#dvwa)
   - [Path traversal](#path-traversal)
   - [File Inclusion](#file-inclusion)
   - [Command injection](#command-injection)
   - [HIDS](#hids)
   - [SQL injection](#sql-injection)
-  - [Same-Origin Policy](#same-origin-policy)
+  - [Same-origin policy](#same-origin-policy)
   - [Cookies](#cookies)
   - [XSS](#xss)
   - [Stored XSS Attack](#stored-xss-attack)
   - [Reflected XSS](#reflected-xss)
   - [Cross Domain Acces Controls](#cross-domain-acces-controls)
-  - [DOM-based XSS](#dom-based-xss)
   - [CSRF](#csrf)
+  - [Penetration testing](#penetration-testing)
 
 #
 
@@ -176,21 +179,30 @@ To keep a company as safe as possible for hackers it would be best to use both H
 
 SQL is a common language and it's purpose is to acces or modify databases. SQLI can be used to adjust the backend to display private information, like important business data or sensitive customer info. There are multiple types of SQL injection. With In-band SQLi the hacker launches their attacks through the same way of communication. In-band has two variations:
 
-| | |
+|Types of SQLi | Explanation |
 |:---------|:---------|
 | Error-Based SQLi| The attacker sends wrong inputs to create error messages. These errors gives an implication about the structure of a database.|
 | Union-based SQLi| The attacker can obtain information from a database by expanding results from the original query. This only works if the new queries have the same structure as the original ones.|
 
+Blind SQL is almost the same as SQL. The main difference is the way data is retreived. With normal SQL a hacker sends inputs to a server which gives an error message back. With blind SQL the hacker doesn't receive any error messages which makes it harder than normal SQL. There are multiple methods you can use with blind SQL.
+
+|Blind SQL methods | Explanation |
+|:---------|:---------|
+|True/False-based|This way a hacker needs to give statements, if the statement isn't recognized as SQL, it's false and it won't show anything. When the statement is recognized and it's true the database will give up data.|
+|Time-based| Some databases use a sleep function. When this function is send to a database and the responses become slow, you know the input is accepted.
+
 #
 
-To practise this I used help, which said I had to get acces to the passwords of 5 users. these users are stored in de database. When you look at the source code, you can see there is no validation which gives me the opportunity to inject lines of code. I looked up what pieces of code I could implement for exploitation. At first I submitted 1 to 5 to see what pieces of information I have acces to, which were ID, first name and surname. When I submitted an invalid input I got a SQL error message. The URL changed and I modified it to find how many colums the database uses so I can match the structure. Order by 2 is the only input that redirects me back tot the page, which means it's correct and the database uses two columns. 
-I used HackBar add-on as a pentest tool to check for vulnerabilities. This helped me with executing SQL injections to gain the hashes of the users.
+To practise this I used help, which said I had to get acces to the passwords of 5 users. these users are stored in de database. When you look at the source code, you can see there is no validation which gives me the opportunity to inject lines of code. I looked up what pieces of code I could implement for bypassing the login screen. At first I submitted 1 to 5 to see what pieces of information I have acces to, which were ID, first name and surname. I looked up an cheat-sheet for union attacks from portswigger and inserted ' ORDER BY 1-- , which gave me no error. I replaced 1 for 2 etc. till it gave me an error with 3. This means the passwords are stored in the database and the structure is devided into two columns. I used HackBar add-on for long injection URL to decrypt the password hashes.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/hackbar-hashes.png?raw=true)
 
 I converted these hashes by using crackstation which gave me the passwords of the 5 users.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/crackstation.png?raw=true)
+
+# Blind SQL injection
+The goal is to find out what version the SQL database is running on by executing blind SQL attacks. When I typed 1' and sleep(5)# it took a long time to give me a response, which means the database is vulnerable.
 
 #
 
@@ -208,7 +220,7 @@ One of the reasons why Internet Explorer isn't safe to use is because it doesn't
 
 Cookies are text documents with pieces of information that contain the username and password. Browser cookies are very important in the present day, because a server creates the data that is stored in a cookie and attaches a unique ID. When there is an exchange between a server and computer the server will read the ID to confirm the user.  
 
-![](https://media.nu.nl/m/m1nx532as18u_std1024.jpg)
+![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/cookies.png?raw=true)
 
 #
 
@@ -236,7 +248,7 @@ When an application is used to store data, it can be compromised by injecting ma
 
 ## Cross Domain Acces Controls
 
-Some web pages use iframes which integrates one website within another. These sites can't communicate with eachother due to Same-Origin policy. Only when the scheme, port and host are the same.
+Some web pages use iframes which integrates one website within another. These sites can't communicate with eachother due to Same-Origin policy. Only when the scheme, port and host are the same, data can be transferred.
 
 ![](https://github.com/wendelaQuist/Cyber_security/blob/main/Pictures/Cross-domain-access-controls.png?raw=true)
 
@@ -244,4 +256,10 @@ Some web pages use iframes which integrates one website within another. These si
 
 ## CSRF
 
-Cross-site request forgery is a way to partially bypass the same-origin policy. This way hackers can get remote control and change information like email adresses and passwords. 
+Cross-site request forgery is a way to partially bypass the Same-Origin Policy. This way hackers can customize requests. This method can cause email adresses and passwords to change to lock the user out, or to completely delete user accounts.  
+
+#
+
+## Penetration testing
+
+To detect and resolve high risks in a company, they can choose to be pentested. At first it's important to gather information about vulnerabilities, exploits and weaknesses by executing a **reconnaissance pen test**. This means scanning and/or testing networks, operating systems or other infrastructures. Once we found a backdoor somewhere in the system we will **infiltrate** so we can traffic unauthorized data and **exfiltrate**.
