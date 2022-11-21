@@ -13,7 +13,6 @@ Wen Quist
 
 |Version|Date|
 |:---------|:---------|
-|**[Version 4.0](./BOK_4.md**|**18-11-2022**|
 |**[Version 3.0](https://github.com/wendelaQuist/Cyber_security/commit/fb82209d41633b574a04130e20737af4727451c1)**|**14-10-2022**|
 |**[Version 2.0](https://github.com/wendelaQuist/Cyber_security/commit/6aa318c4183d925c0577d6f58fc57dfb46ff460d)**|**30-09-2022**|
 |**[Version 1.0](https://github.com/wendelaQuist/Cyber_security/blob/main/Documents/BOK.pdf)**|**16-09-2022**|
